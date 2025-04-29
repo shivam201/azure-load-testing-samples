@@ -76,7 +76,7 @@ else {
 foreach ($envvariables in $allenvvariables) {
     $envkeyvalue = $envvariables -split "="
     $envkey = $envkeyvalue[0]
-    $envvalue = "`${__BeanShell(System.getenv(`""+$envkey+"`"))}"
+    $envvalue = "`${__groovy(System.getenv(`""+$envkey+"`"))}"
     #Check if envkey is present in the samplejson
     $newvalue = $newvalue +
         "<elementProp name=`"$envkey`" elementType=`"Argument`">
