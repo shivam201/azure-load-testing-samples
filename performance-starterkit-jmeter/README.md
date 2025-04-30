@@ -1,22 +1,4 @@
----
-page_type: sample
-languages:
-- xml
-products:
-- starterkit using JMeter
-- azure-load-testing
-- jmeter suite generation
-- azure-load-testing-setup
-- jmeter-test-best-practices
-urlFragment: performance-starter-kit-azure-load-testing-jmeter
-description: Starter kit for performance testing using JMeter and Azure Load Testing
-title: Performance Starter Kit for JMeter and Azure Load Testing
----
-
 # Performance Starter Kit for JMeter and Azure Load Testing
-This repository contains a starter kit for performance testing using JMeter and Azure Load Testing. The kit is designed to help you set up and execute performance tests quickly and efficiently.
-
-# Introduction 
 The performance starter kit for JMeter is designed to streamline the performance testing process using Azure Load Testing. Using this kit, you can:
 
 1. Ensure compatibility with ALT: The kit converts your JMeter test scripts to be compatible for use with Azure Load Testing.
@@ -28,6 +10,14 @@ The performance starter kit for JMeter is designed to streamline the performance
 7. Generic Report Generation: The kit includes a facility for generating generic JMeter reports from result JTL files.
 8. Auto Suite Generation: It assists in the automatic generation of test suites (.jmx files).
 9. JMeter Test Best Practices: The kit provides guidelines for best practices in JMeter testing.
+
+# How to Use the Kit
+1. Clone the repository to your local machine.
+2. Install Azure CLI If you haven't already. You can find the installation instructions [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+3. Update the `config.json` file with your Azure credentials(Tenant,subscription,Resource Group)and other necessary configurations(duration,secret,certificate,env variables if any) for running and ALT setup
+4. Enable starterkit setup if you want to install the prerequisites and setup JMeter. You can do this by setting the `enable_starterkit_setup` variable to `true` in the `config.json` file.
+5. To generate the suite from APIM or Swagger you need to suitegenerationfromswagger or suitegenerationfromapimconfig=true and provie the swagger or apim file complete path in the config.json file.
+6. To enable html report generation set the reportgeneration variable to `true` in the `config.json` file and provide the path to the jtl file in the config.json file.
 
 ## Resources
 
