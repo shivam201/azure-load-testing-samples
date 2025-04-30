@@ -90,39 +90,31 @@ Write-Output "`nTotal VUH(Virtual User Hours) needed to perform this test will b
 
     try 
     {
+        $parameters = @()
+        if ($secretnew.Length -gt 0) {
+            foreach ($secret in $secretnew) {
+                $parameters += "--secret"
+                $parameters += $secret
+            }
+        }
         
-        if ($($secretnew.Length) -gt 0 -and $($certificates.Length) -gt 0 -and $($environment.Length) -gt 0){
-            # With certificate , secrets and environment
-            az load test create --load-test-resource altresource_$altresourcename --resource-group $resourcegroup --test-id testid$altresourcename --display-name SampleTest$altresourcename --description "Perf Starter Kit - sample load test" --secret $secretnew --certificate $certnew --env $envnew --test-plan $altjmxlocation --engine-instances $engineinstances 
+        # Format and add --certificate arguments
+        if ($certnew.Length -gt 0) {
+            foreach ($certificate in $certnew) {
+                $parameters += "--certificate"
+                $parameters += $certificate
+            }
         }
-        elseif ($($secretnew.Length) -gt 0 -and $($certificates.Length) -gt 0 -and $($environment.Length) -le 0){
-            # Only with secrets and certificate not with environment
-            az load test create --load-test-resource altresource_$altresourcename --resource-group $resourcegroup --test-id testid$altresourcename --display-name SampleTest$altresourcename --description "Perf Starter Kit - sample load test" --secret $secretnew --certificate $certnew --test-plan $altjmxlocation --engine-instances $engineinstances
+        
+        # Format and add --env arguments
+        if ($envnew.Length -gt 0) {
+            foreach ($env in $envnew) {
+                $parameters += "--env"
+                $parameters += $env
+            }
         }
-        elseif ($($secretnew.Length) -gt 0 -and $($certificates.Length) -le 0 -and $($environment.Length) -le 0){
-            # Only with secrets #
-            az load test create --load-test-resource altresource_$altresourcename --resource-group $resourcegroup --test-id testid$altresourcename --display-name SampleTest$altresourcename --description "Perf Starter Kit - sample load test" --secret $secretnew --test-plan $altjmxlocation --engine-instances $engineinstances --certificate $certnew
-        }
-        elseif ($($secretnew.Length) -le 0 -and $($certificates.Length) -gt 0 -and $($environment.Length) -gt 0){
-            <# Only with Certificate and environment #>
-            az load test create --load-test-resource altresource_$altresourcename --resource-group $resourcegroup --test-id testid$altresourcename --display-name SampleTest$altresourcename --description "Perf Starter Kit - sample load test" --env $envnew --test-plan $altjmxlocation --engine-instances $engineinstances --certificate $certnew
-        }
-        elseif ($($secretnew.Length) -le 0 -and $($certificates.Length) -gt 0 -and $($environment.Length) -le 0){
-            <# Only with Certificate #>
-            az load test create --load-test-resource altresource_$altresourcename --resource-group $resourcegroup --test-id testid$altresourcename --display-name SampleTest$altresourcename --description "Perf Starter Kit - sample load test" --test-plan $altjmxlocation --engine-instances $engineinstances --certificate $certnew
-        }
-        elseif ($($secretnew.Length) -le 0 -and $($certificates.Length) -le 0 -and $($environment.Length) -gt 0){
-            <# Only with Environment #>
-            az load test create --load-test-resource altresource_$altresourcename --resource-group $resourcegroup --test-id testid$altresourcename --display-name SampleTest$altresourcename --description "Perf Starter Kit - sample load test" --env $envnew --test-plan $altjmxlocation --engine-instances $engineinstances --certificate $certnew
-        }
-        elseif ($($secretnew.Length) -gt 0 -and $($certificates.Length) -le 0 -and $($environment.Length) -gt 0){
-            <# Only with Serect and Environment #>
-            az load test create --load-test-resource altresource_$altresourcename --resource-group $resourcegroup --test-id testid$altresourcename --display-name SampleTest$altresourcename --description "Perf Starter Kit - sample load test" --secret $secretnew --env $envnew --test-plan $altjmxlocation --engine-instances $engineinstances
-        }
-        else {
-            az load test create --load-test-resource altresource_$altresourcename --resource-group $resourcegroup --test-id testid$altresourcename --display-name SampleTest$altresourcename --description "Perf Starter Kit - sample load test" --test-plan $altjmxlocation --engine-instances $engineinstances<# Action to perform if the condition is false #>
-        }
-
+        
+        az load test create --load-test-resource altresource_$altresourcename --resource-group $resourcegroup --test-id testid$altresourcename --display-name SampleTest$altresourcename --description "Perf Starter Kit - sample load test" --test-plan $altjmxlocation --engine-instances $engineinstances @parameters
 
         # Executing Load Test
         Write-Output "`n Executing the Load Test, Please wait for the test to complete ..."
