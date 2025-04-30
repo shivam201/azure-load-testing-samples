@@ -7,7 +7,7 @@
 ##########################################################################################
 ##########################################################################################
 Write-Output "*****************************************************************************************"
-Write-Output "Welcome to Performance Starter Kit 'A one stop solution' loaded with the following features:`n1. Ensure compatibility with ALT: The kit converts your JMeter test scripts to be compatible for use with Azure Load Testing `n2. Azure Load Test Setup and Execution: It creates the Azure Load Test setup and executes JMeter test scripts within Azure Load Testing.  `n3. JAVA Download and installation as JMeter prerequisite `n4. JMeter Download and SetupEnvironment Variable setup for Java and JMeter `n5. Create JMeter script Master Template (For majority of script reference)`n6. JMeter suite creation as per Swagger or APIM `n7. JMeter HTML Reporting Creation from .jtl"
+Write-Output "Welcome to JMETER Starter Kit 'A one stop solution' loaded with the following features:`n1. JAVA Setup `n2. JMeter Setup `n3. JMeter plugin Installation `n4. Create JMeter script Master Template (For majority of script reference)`n5. Auto suite generation as per Swagger or APIM `n6. Ensure compatibility with ALT`n7. Azure Load Test setup and execution `n8. Generic report generation from JTL file `n9. JMeter to ALT conversion"
 Write-Output "*****************************************************************************************"
 Start-Sleep -Seconds 2
 Write-Output "`nExamining the config.properties file to retrieve parameters and determine enabled features for execution or processing"
