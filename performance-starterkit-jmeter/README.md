@@ -1,7 +1,25 @@
-# Introduction 
-The Performance Starter Kit with JMeter is a comprehensive tool designed to streamline the performance testing process using Azure Load Testing. Here’s an overview of its key features:
+---
+page_type: sample
+languages:
+- xml
+products:
+- starterkit using JMeter
+- azure-load-testing
+- jmeter suite generation
+- azure-load-testing-setup
+- jmeter-test-best-practices
+urlFragment: performance-starter-kit-azure-load-testing-jmeter
+description: Starter kit for performance testing using JMeter and Azure Load Testing
+title: Performance Starter Kit for JMeter and Azure Load Testing
+---
 
-1. Converting Legacy JMeter Test Scripts: The kit converts legacy JMeter test scripts to the Azure Load Testing (ALT) compatible format.
+# Performance Starter Kit for JMeter and Azure Load Testing
+This repository contains a starter kit for performance testing using JMeter and Azure Load Testing. The kit is designed to help you set up and execute performance tests quickly and efficiently.
+
+# Introduction 
+The performance starter kit for JMeter is designed to streamline the performance testing process using Azure Load Testing. Using this kit, you can:
+
+1. Ensure compatibility with ALT: The kit converts your JMeter test scripts to be compatible for use with Azure Load Testing.
 2. Azure Load Test Setup and Execution: It creates the Azure Load Test setup and executes JMeter test scripts within Azure Load Testing.
 3. Prerequisites Installation: The kit installs the latest versions of all necessary prerequisites for using JMeter.
 4. JMeter Setup: It handles the setup of JMeter, ensuring that users are ready to use it immediately.
@@ -11,3 +29,7 @@ The Performance Starter Kit with JMeter is a comprehensive tool designed to stre
 8. Auto Suite Generation: It assists in the automatic generation of test suites (.jmx files).
 9. JMeter Test Best Practices: The kit provides guidelines for best practices in JMeter testing.
 
+## Resources
+
+- Learn more about [Azure Load Testing](https://aka.ms/malt)
+- [Azure Load Testing documentation](https://aka.ms/malt-docs)
