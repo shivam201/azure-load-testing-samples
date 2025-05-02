@@ -16,7 +16,8 @@ The performance starter kit for JMeter is designed to streamline the performance
 2. Install Azure CLI If you haven't already. You can find the installation instructions [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 3. Update the `config.json` file with your Azure credentials(Tenant,subscription,Resource Group)and other necessary configurations(duration,secret,certificate,env variables if any) for running using ALT.
 4. Enable starterkit setup if you want to install the prerequisites and setup JMeter. You can do this by setting the `enable_starterkit_setup` variable to `true` in the `config.json` file.
-5. To generate the suite from APIM or Swagger you need to suitegenerationfromswagger or suitegenerationfromapimconfig=true and provie the swagger or apim file complete path in the config.json file.
+5. To generate the suite from APIM or Swagger you need to suitegenerationfromswagger or suitegenerationfromapimconfig=true and provide the swagger or apim file complete path in the config.json file.
+Sample files are available in the [config_input_files](../performance-starterkit-jmeter/config_input_files) folder 
 6. To enable html report generation set the reportgeneration variable to `true` in the `config.json` file and provide the path to the jtl file in the config.json file.
 
 ## Resources
