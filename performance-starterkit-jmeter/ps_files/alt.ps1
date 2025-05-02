@@ -16,12 +16,6 @@ else {
 #Calculating the total User Needed to perform the test
 $totalVUs = $concurrenthitsneeded * $avgresponsetimeinsec
 Write-Output "`nTotal VUs(Virtual Users) configured are - $totalVUs `n for duration - $durationinmin minutes"
-#Calculating the VUH
-$VUH = $totalVUs * ($durationinmin/60)
-$VUH = [math]::Ceiling($VUH)
-
-Write-Output "`nTotal VUH(Virtual User Hours) needed to perform this test will be - $VUH"
-
     
     try {
         az config set core.login_experience_v2=off
